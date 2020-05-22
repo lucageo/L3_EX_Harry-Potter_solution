@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div ng-app="userInputApp" ng-controller="userController">
+      <p>Enter your first name: <input type="text" ng-model="user.firstname" ng-minlength="2"></p>
+      <p>Enter your last name:  <input type="text" ng-model="user.lastname"></p>
+      <p>Hello {{user.fullname()}}!</p>
+    </div>
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.js"></script>
+  
+    <script>
+     var userInput = angular.module("userInputApp", []);
+	 
+    	userInput.controller('userController', function($scope) {
+    	  $scope.user = {
+    	    firstname: "Harry",
+	        lastname: "Potter",
+	   
+	        fullname: function() {
+				return $scope.user.firstname + " " + $scope.user.lastname;
+	        }
+	      }
+    	});
+    </script>
+	</body>
+</html> 
